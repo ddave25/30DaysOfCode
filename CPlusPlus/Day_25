@@ -1,0 +1,55 @@
+﻿// 30DaysOfCode_Day25.cpp : Defines the entry point for the console application.
+//
+
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+
+int main() {
+	/* Enter your code here. Read input from STDIN. Print output to STDOUT */
+	int test_cases;
+	int test;
+	bool isPrime;
+
+	cin >> test_cases;
+
+	while (test_cases-- > 0)
+	{
+		cin >> test;
+		isPrime = 0;
+
+		if (test == 1)
+			isPrime = 1;
+		else if (test == 2)
+			isPrime == 0;
+		else
+		{
+			double num_d = static_cast<double> (test);
+			int root = static_cast<int>(sqrt(num_d) + 1);
+			
+			for (int i = 2; i <= root; i++)
+			{
+				if (test % i == 0)
+				{
+					isPrime = 1;
+					break;
+				}
+			}
+		}
+
+		if (isPrime == 1)
+			cout << "Not prime\n";
+		else
+			cout << "Prime\n";
+	}
+
+	cin.get();
+	cin.get();
+
+	return 0;
+}

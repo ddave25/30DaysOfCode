@@ -1,0 +1,80 @@
+﻿// 30DaysOfCode_Day29.cpp : Defines the entry point for the console application.
+//
+
+#include <set>
+#include <list>
+#include <cmath>
+#include <ctime>
+#include <deque>
+#include <queue>
+#include <stack>
+#include <string>
+#include <bitset>
+#include <cstdio>
+#include <limits>
+#include <vector>
+#include <climits>
+#include <cstring>
+#include <cstdlib>
+#include <fstream>
+#include <numeric>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <unordered_map>
+
+using namespace std;
+
+int binary(int num)
+{
+	int rem;
+	
+	if (num <= 1)
+	{
+		return num;
+	}
+
+	rem = num % 2;
+	binary(num / 2);
+
+	return rem;
+}
+
+int main()
+{
+	int t;
+	cin >> t;
+	for (int a0 = 0; a0 < t; a0++) {
+		int n;
+		int k;
+		int c = 0;
+
+		cin >> n >> k;
+
+		for (int s1 = 1; s1 <= n; s1++)
+		{
+			for (int s2 = 1; s2 <= n; s2++)
+			{
+				if (s2 == s1 || s2 < s1)
+					continue;
+				else
+				{
+					int current = s1 & s2;
+					//cout << s1 << " & " << s2 << " = " << current << "\n";
+					
+					if (current > c && current < k)
+						c = current;
+
+				}
+			}
+		}
+
+		cout << c << "\n";
+
+	}
+
+	//cin.get();
+	//cin.get();
+	return 0;
+}
+
